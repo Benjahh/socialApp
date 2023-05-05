@@ -8,8 +8,9 @@ import morgan from "morgan";
 import path from "path";
 import dotenv from "dotenv"
 import { fileURLToPath } from "url";
-import { error } from "console";
-
+import { isMapIterator } from "util/types";
+import { register } from "./controllers/auth.js"
+ 
 const __fileName = fileURLToPath(import.meta.url)
 const __dirName = path.dirname(__fileName)
 dotenv.config()
