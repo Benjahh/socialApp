@@ -8,7 +8,7 @@ import morgan from "morgan";
 import path from "path";
 import dotenv from "dotenv"
 import { fileURLToPath } from "url";
-import { isMapIterator } from "util/types";
+import authRoutes from "./routes/auth.js"
 import { register } from "./controllers/auth.js"
  
 const __fileName = fileURLToPath(import.meta.url)
@@ -34,8 +34,10 @@ const storage = multer.diskStorage ({
         cb(null, file.originalname)
     }
 })
+const upload = multer({storage})
 
 app.post("auth/register", upload.single("picture", register))
+app.use("/auth", authRoutes)
 
 const PORT = process.env.PORT
 mongoose

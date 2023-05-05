@@ -32,7 +32,15 @@ export const regster = async (req, res) => {
         const savedUser = await newUser.save()
         res.status(201).json(savedUser);
     } catch (err) {
-        res.status(500).json({ message: err })
+        res.status(500).json({ message: err.message })
         
+    }
+}
+
+export const login = async (req, res) => {
+    try {
+        
+    } catch (error) {
+        res.status(500).json({message: error.message})
     }
 }
