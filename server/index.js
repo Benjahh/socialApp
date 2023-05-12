@@ -12,6 +12,7 @@ import authRoutes from "./routes/auth.js"
 import userRoutes from "./routes/users.js"
 import postRoutes from "./routes/posts.js"
 import { register } from "./controllers/auth.js"
+import { createPost } from "./routes/posts.js"
 import { verifyToken } from "./middleware/auth.js";
  
 const __fileName = fileURLToPath(import.meta.url)
