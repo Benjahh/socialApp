@@ -10,6 +10,7 @@ import dotenv from "dotenv"
 import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.js"
 import userRoutes from "./routes/users.js"
+import postRoutes from "./routes/posts.js"
 import { register } from "./controllers/auth.js"
 import { verifyToken } from "./middleware/auth.js";
  
@@ -39,8 +40,11 @@ const storage = multer.diskStorage ({
 const upload = multer({storage})
 
 app.post("auth/register", upload.single("picture"), register)
+app.post("/posts", verifyToken, upload.single("picture"))
+
 app.use("/auth", authRoutes)
 app.use("/users", userRoutes)
+app.use("/posts", postRoutes)
 
 const PORT = process.env.PORT
 mongoose
