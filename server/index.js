@@ -14,6 +14,9 @@ import postRoutes from "./routes/posts.js"
 import { register } from "./controllers/auth.js"
 import { createPost } from "./routes/posts.js"
 import { verifyToken } from "./middleware/auth.js";
+import User from "../models/User.js"
+import Post from "../models/Post.js"
+import {user, post, users} from "./data/data.js"
  
 const __fileName = fileURLToPath(import.meta.url)
 const __dirName = path.dirname(__fileName)
@@ -54,5 +57,8 @@ mongoose
     useUnifiedTopology: true,
 })
 .then(app.listen(PORT, () => {console.log(`Listening in port: ${PORT}`)}))
+
+// User.insertMany(users)
+// Post.insertMany(posts)
 .catch((error) => console.log(error))
 

@@ -1,4 +1,4 @@
-export const ProfilePgitage = () => {
+export const ProfilePage = () => {
     return (
         <div>
             
