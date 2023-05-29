@@ -8,8 +8,15 @@ import morgan from "morgan";
 import path from "path";
 import dotenv from "dotenv"
 import { fileURLToPath } from "url";
-import { isMapIterator } from "util/types";
+import authRoutes from "./routes/auth.js"
+import userRoutes from "./routes/users.js"
+import postRoutes from "./routes/posts.js"
 import { register } from "./controllers/auth.js"
+import { createPost } from "./routes/posts.js"
+import { verifyToken } from "./middleware/auth.js";
+import User from "../models/User.js"
+import Post from "../models/Post.js"
+import {user, post, users} from "./data/data.js"
  
 const __fileName = fileURLToPath(import.meta.url)
 const __dirName = path.dirname(__fileName)
@@ -34,8 +41,14 @@ const storage = multer.diskStorage ({
         cb(null, file.originalname)
     }
 })
+const upload = multer({storage})
 
-app.post("auth/register", upload.single("picture", register))
+app.post("auth/register", upload.single("picture"), register)
+app.post("/posts", verifyToken, upload.single("picture"))
+
+app.use("/auth", authRoutes)
+app.use("/users", userRoutes)
+app.use("/posts", postRoutes)
 
 const PORT = process.env.PORT
 mongoose
@@ -44,5 +57,8 @@ mongoose
     useUnifiedTopology: true,
 })
 .then(app.listen(PORT, () => {console.log(`Listening in port: ${PORT}`)}))
+
+// User.insertMany(users)
+// Post.insertMany(posts)
 .catch((error) => console.log(error))
 
