@@ -32,3 +32,55 @@ const loginSchema = yup.object().shape({
     email: yup.string().email("invalid email").required("required"),
     password: yup.string().required("required")
 })
+
+const initialValuesRegister = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    location: "",
+    occupation: "",
+    picture: ""
+}
+
+const initialValuesLogin = {
+    email: "",
+    password: ""
+}
+
+const Form = () => {
+    const [pageType, setPageType] = useState("login")
+    const { palette } = useTheme()
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const isNonMobile = useMediaQuery("(min-width: 600px)")
+    const isLogin = pageType === "login"
+    const isRegister = pageType === "register"
+
+    const handleFormSubmit = async (values, onSubmitProps) => {}
+
+    return (
+        <Formik
+        onSubmit={handleFormSubmit}
+        initialValues={isLogin ? initialValuesLogin : initialValuesRegister }
+        validationSchema={isLogin ? loginSchema : registerSchema}
+        >
+            {({
+                 values,
+                 errors,
+                 touched,
+                 handleBlur,
+                 handleChange,
+                 handleSubmit,
+                 setFieldValue,
+                 resetForm,
+               }) => (
+                <form onSubmit={handleSubmit}>
+
+                </form>
+               )
+            })}
+
+        </Formik>
+    )
+}
