@@ -69,7 +69,7 @@ const UserWidget = ({userId, picturePath}) => {
                                 cursor: pointer
                                 }
                             }}>
-                                { firstName, lastName }
+                                { firstName } { lastName }
                             </Typography>
                             <Typography color={medium}>{friends.length}</Typography>
                         </Box>
