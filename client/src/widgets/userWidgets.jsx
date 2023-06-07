@@ -2,7 +2,8 @@ import {
     ManageAccountsOutlined,
     EditOutlined,
     LocationOutlined,
-    WorkOutlineOutlined
+    WorkOutlineOutlined,
+    LocationOnOutlined
 } from "@mui/icons-material"
 import { Box, Typography, Divider, useTheme } from "@mui/material"
 import UserImage from "./components/userImage"
@@ -80,7 +81,38 @@ const UserWidget = ({userId, picturePath}) => {
                 <Divider/>
                 {}
                     <Box p="1rem 0">
-                        <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem"></Box>
+                        <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
+                            <LocationOnOutlined fontSize="large " sx={{ color: main}}/>
+                            <Typography color={medium} > {location}</Typography>
+                        </Box>
+                        <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
+                            <LocationOnOutlined fontSize="large " sx={{ color: main}}/>
+                            <Typography color={medium} > {occupation}</Typography>
+                        </Box>
+                    </Box>
+                    <Box p="1rem 0">
+                        <FlexBetween mb="0.5rem">
+                            <Typography color={medium}> Who's viewed your profile</Typography>
+                            <Typography color={medium} fontWeight="500">
+                                {viewedProfile}
+                            </Typography>
+                        </FlexBetween>
+                        <FlexBetween mb="0.5rem">
+                            <Typography color={medium}> Impressions of your post</Typography>
+                            <Typography color={medium} fontWeight="500">
+                                {impressions}
+                            </Typography>
+                        </FlexBetween>
+                    </Box>
+                    <Box>
+                        <Typography fontSize="1rem" color="medium" fontWeight="500" mb="1rem">
+                            Social Profiles
+                        </Typography>
+                        <FlexBetween gap="1rem" mb="0.5rem">
+                            <FlexBetween gap="1rem">
+                                <img src="" alt="twitter"></img>
+                            </FlexBetween>
+                        </FlexBetween>
                     </Box>           
             </FlexBetween>
         </WidgetWrapper>
