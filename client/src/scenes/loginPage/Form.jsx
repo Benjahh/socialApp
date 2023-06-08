@@ -176,7 +176,7 @@ const Form = () => {
                                     border={`1px solid ${palette.neutral.medium}`}
                                 >
                                     <Dropzone
-                                    acceptedFiles=".jpg,.jeog,.png"
+                                    acceptedFiles=".jpg,.jpeg,.png"
                                     multiple={false}
                                     onDrop={(acceptedFiles) => {
                                         setFieldValue("picture", acceptedFiles[0])
