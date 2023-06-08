@@ -1,11 +1,39 @@
-import { Box } from "@mui/material"
+import { Box, useMediaQuery } from "@mui/material"
 import Navbar from "./scenes/navbar"
+import { useSelector } from "react-redux"
+import UserWidget from "scenes/widgets/userWidgets"
+import MyPostWidget from "scenes/widgets/myPostWidget"
 
 export const HomePage = () => {
+    const isNonMobileScreens = useMediaQuery("(min-width: 1000px)")
+    const {_id, picturePath } = useSelector((state) => state.user)
     return (
         <div>
             <Box>
-                <Navbar></Navbar>
+                <Navbar>
+                    <Box
+                        width="100%"
+                        padding="2rem 6%"
+                        display={isNonMobileScreens ? "flex" : "block"}
+                        gap="0.5rem"
+                        justifyContent="space-between"
+                    >
+                        <Box flexBasis={isNonMobileScreens ? "26%" : undefined}>
+                            <UserWidget userId={_id} picturePath={picturePath}/>
+                        </Box>
+                        <Box
+                            flexBasis={isNonMobileScreens ? "42%" : undefined}
+                            mt={isNonMobileScreens ? undefined : "2rem"}
+                        >
+
+                        </Box>
+                        {isNonMobileScreens && (
+                            <Box flexBasis="26%"></Box>
+                        )}
+
+                    </Box>
+
+                </Navbar>
             </Box>
 
         </div>
