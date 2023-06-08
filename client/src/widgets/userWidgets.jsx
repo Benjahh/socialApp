@@ -108,14 +108,42 @@ const UserWidget = ({userId, picturePath}) => {
                         <Typography fontSize="1rem" color="medium" fontWeight="500" mb="1rem">
                             Social Profiles
                         </Typography>
+
                         <FlexBetween gap="1rem" mb="0.5rem">
                             <FlexBetween gap="1rem">
                                 <img src="" alt="twitter"></img>
+                                <Box>
+                                    <Typography color={main} fontWeight="500">
+                                            Twitter
+                                    </Typography>
+                                    <Typography color={medium}>     
+                                        Social Network
+                                    </Typography>
+                                </Box>
                             </FlexBetween>
+                            <EditOutlined sx={{ color: main}}/>
                         </FlexBetween>
+
+                        <FlexBetween gap="1rem" >
+                            <FlexBetween gap="1rem">
+                                <img src="" alt="linkedin"></img>
+                                <Box>
+                                    <Typography color={main} fontWeight="500">
+                                            Linkedin
+                                    </Typography>
+                                    <Typography color={medium}>     
+                                        Network Platform
+                                    </Typography>
+                                </Box>
+                            </FlexBetween>
+                            <EditOutlined sx={{ color: main}}/>
+                        </FlexBetween>
+
                     </Box>           
             </FlexBetween>
         </WidgetWrapper>
 
     )
 }
+
+export default UserWidget
