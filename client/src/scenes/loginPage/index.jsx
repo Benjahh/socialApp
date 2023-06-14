@@ -33,3 +33,5 @@ export const LoginPage = () => {
         </Box>
     )
 }
+
+export default LoginPage
