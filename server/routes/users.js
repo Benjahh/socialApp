@@ -10,7 +10,7 @@ import {verifyToken} from "../middleware/auth.js"
 const router = express.Router()
 
 router.get("/:id", verifyToken, getUser)
-router.ge("/:id/friends", verifyToken, getUserFriends)
+router.get("/:id/friends", verifyToken, getUserFriends)
 
 router.patch("/:id/:friendsId", verifyToken, addRemoveFriend)
 
