@@ -14,7 +14,7 @@ import {
     Search,
     Message,
     DarkMode,
-    LightMOde,
+    LightMode,
     Notifications,
     Help,
     Menu,
@@ -22,9 +22,9 @@ import {
 
 } from "@mui/icons-material"
 import { useDispatch, useSelector } from "react-redux"
-import state, {setMode, setLogout} from "state"
+import state, {setMode, setLogout} from "../../state"
 import { useNavigate } from "react-router-dom"
-import FlexBetween from "components/flexBetween"
+import FlexBetween from "../../components/flexBetween"
 const Navbar = () => {
     const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false)
     const dispatch = useDispatch()

@@ -1,4 +1,4 @@
-import Post from "../models/post.js"
+import Post from "../models/Post.js"
 
 export const createPost = async (req, res) => {
     try {
@@ -26,7 +26,7 @@ export const createPost = async (req, res) => {
     }
 }
 
-export const getFeedPoints = async (req, res) => {
+export const getFeedPosts = async (req, res) => {
     try {
         const post = await Post.find()
         res.staus(200).json(post)
@@ -37,7 +37,7 @@ export const getFeedPoints = async (req, res) => {
     }
 }
 
-export const getUserPost = async (req, res) => {
+export const getUserPosts = async (req, res) => {
     try {
         const { userId } = req.params
         const post = await Post.find({userId})
