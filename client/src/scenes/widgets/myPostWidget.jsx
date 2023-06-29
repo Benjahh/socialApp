@@ -31,8 +31,9 @@ import {
     const [image, setImage] = useState(null)
     const [post, setPost] = useState("")
     const { palette } = useTheme()
-    const { _id } = useState((state) => state.user)
-    const { token } = useState((state) => state.token)
+    const { _id } = useSelector((state) => state.user);
+    console.log(_id)
+    const { token } = useSelector((state) => state.token)
     const isNonMobileScreens = useMediaQuery("(min-width: 1000px)")
     const mediumMain = palette.neutral.mediumMain
     const medium = palette.neutral.medium
