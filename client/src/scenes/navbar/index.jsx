@@ -53,7 +53,7 @@ const Navbar = () => {
                 sx={{
                     "&:hover": {
                         color: primaryLight,
-                        cursor: pointer
+                        cursor: "pointer",
                     }
                 }}
                 >
